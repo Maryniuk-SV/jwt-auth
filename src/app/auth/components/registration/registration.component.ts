@@ -1,6 +1,7 @@
+import { AuthService } from "./../../services/auth.service";
 import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-registration",
@@ -10,7 +11,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 export class RegistrationComponent implements OnInit {
   regForm: FormGroup;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.formInit();
@@ -18,9 +19,9 @@ export class RegistrationComponent implements OnInit {
 
   formInit() {
     this.regForm = new FormGroup({
-      name: new FormControl(),
-      password: new FormControl(),
-      email: new FormControl()
+      fullName: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+      email: new FormControl(null, Validators.required)
     });
   }
 
@@ -28,7 +29,12 @@ export class RegistrationComponent implements OnInit {
     console.log(this.regForm.value);
 
     if (this.regForm.valid) {
-      this.router.navigate(["auth/login"]);
+      const regModel = this.regForm.value;
+      this.authService.registration(regModel).subscribe((registrated: any) => {
+        if (registrated.success) {
+          this.router.navigate(["auth/login"]);
+        }
+      });
     }
   }
 }

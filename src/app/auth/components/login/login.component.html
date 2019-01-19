@@ -4,15 +4,15 @@
         <form
             class="from"
             [formGroup]="loginForm"
-            (ngSubmit)="onSubmit()">
+            (ngSubmit)="login()">
             <span class="ui-float-label form__item">
                 <input
                     id="float-input"
                     type="text"
                     size="30"
                     pInputText
-                    formControlName="name">
-                <label for="float-input">Username</label>
+                    formControlName="email">
+                <label for="float-input">Email</label>
             </span>
             <span class="ui-float-label form__item">
                 <input

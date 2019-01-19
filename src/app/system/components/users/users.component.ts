@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 import { UserService } from "../../service/user.service";
 import { SocketIOService } from "../../service/socket-io.service";
@@ -33,8 +33,8 @@ export class UsersComponent implements OnInit {
 
   formInit() {
     this.userForm = new FormGroup({
-      name: new FormControl(),
-      password: new FormControl(),
+      name: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
       email: new FormControl()
     });
   }

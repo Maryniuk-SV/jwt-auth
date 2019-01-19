@@ -7,3 +7,7 @@ h1 {
   color: #7a7b7a;
   text-align: center;
 }
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red !important;
+}
