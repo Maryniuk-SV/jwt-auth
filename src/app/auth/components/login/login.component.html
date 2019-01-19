@@ -1,0 +1,40 @@
+<h1>Login</h1>
+<div class="container">
+    <div class="wrapper">
+        <form
+            class="from"
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmit()">
+            <span class="ui-float-label form__item">
+                <input
+                    id="float-input"
+                    type="text"
+                    size="30"
+                    pInputText
+                    formControlName="name">
+                <label for="float-input">Username</label>
+            </span>
+            <span class="ui-float-label form__item">
+                <input
+                    id="float-input"
+                    type="text"
+                    size="30"
+                    pInputText
+                    formControlName="password">
+                <label for="float-input">Password</label>
+            </span>
+            <div class="button">
+                <span
+                    class="registration"
+                    (click)="navToRegs()">
+                    Registration
+                </span>
+                <button
+                    pButton
+                    type="submit"
+                    label="Sing in"
+                    class="ui-button-raised"></button>
+            </div>
+        </form>
+    </div>
+</div>

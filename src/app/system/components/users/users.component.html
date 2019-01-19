@@ -1,0 +1,67 @@
+<h1>New User</h1>
+<div class="container">
+    <div class="wrapper">
+        <form
+            class="from"
+            [formGroup]="userForm"
+            (ngSubmit)="onSubmit()">
+            <span class="ui-float-label form__item">
+                <input
+                    id="float-input"
+                    type="text"
+                    size="30"
+                    pInputText
+                    formControlName="name">
+                <label for="float-input">Username</label>
+            </span>
+            <span class="ui-float-label form__item">
+                <input
+                    id="float-input"
+                    type="text"
+                    size="30"
+                    pInputText
+                    formControlName="password">
+                <label for="float-input">Password</label>
+            </span>
+            <span class="ui-float-label form__item">
+                <input
+                    id="float-input"
+                    type="text"
+                    size="30"
+                    pInputText
+                    formControlName="email">
+                <label for="float-input">Email</label>
+            </span>
+            <div class="button">
+                <button
+                    pButton
+                    type="button"
+                    label="Get Users"
+                    (click)="getUsers()"
+                    class="ui-button-raised"></button>
+                <button
+                    pButton
+                    type="submit"
+                    label="Add user"
+                    class="ui-button-raised"></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="user-list">
+    <div
+        class="user"
+        *ngFor="let user of userList; let id=index">
+        <div class="user__info">
+            <span>№ {{ id + 1 }}</span>
+            <span>Name: {{ user.name }}</span>
+            <span>Email: {{ user.email }}</span>
+        </div>
+        <div
+            class="delete"
+            (click)="deleteUser(user)">
+            <i class="pi pi-times"></i>
+        </div>
+    </div>
+</div>

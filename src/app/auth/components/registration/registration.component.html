@@ -1,0 +1,44 @@
+<h1>Registration</h1>
+<div class="container">
+    <div class="wrapper">
+        <form
+            class="from"
+            [formGroup]="regForm"
+            (ngSubmit)="onSubmit()">
+            <span class="ui-float-label form__item">
+                <input
+                    id="float-input"
+                    type="text"
+                    size="30"
+                    pInputText
+                    formControlName="name">
+                <label for="float-input">Username</label>
+            </span>
+            <span class="ui-float-label form__item">
+                <input
+                    id="float-input"
+                    type="text"
+                    size="30"
+                    pInputText
+                    formControlName="password">
+                <label for="float-input">Password</label>
+            </span>
+            <span class="ui-float-label form__item">
+                <input
+                    id="float-input"
+                    type="text"
+                    size="30"
+                    pInputText
+                    formControlName="email">
+                <label for="float-input">Email</label>
+            </span>
+            <div class="button">
+                <button
+                    pButton
+                    type="submit"
+                    label="Sing up"
+                    class="ui-button-raised"></button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.form__item{
+  margin: 20px 0;
+}
+
+.registration {
+  align-self: flex-end;
+  font-family: 'Open Sans';
+  font-size: 14px;
+  color: #007ad9;
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+}
