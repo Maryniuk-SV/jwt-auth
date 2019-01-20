@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-// import { MenuItem } from "primeng/api";
+import { AuthService } from "src/app/auth/services/auth.service";
 
 @Component({
   selector: "app-header",
@@ -7,32 +7,11 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  constructor() {}
-  items: any[];
+  constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-    this.items = [
-      {
-        label: "Users",
-        icon: "pi pi-fw pi-file"
-      },
-      {
-        label: "Add User",
-        icon: "pi pi-fw pi-pencil"
-      },
-      {
-        label: "Help",
-        icon: "pi pi-fw pi-question"
-      },
-      {
-        label: "Actions",
-        icon: "pi pi-fw pi-cog"
-      },
-      { separator: true },
-      {
-        label: "Quit",
-        icon: "pi pi-fw pi-times"
-      }
-    ];
+  ngOnInit() {}
+
+  logout() {
+    this.authService.logout();
   }
 }

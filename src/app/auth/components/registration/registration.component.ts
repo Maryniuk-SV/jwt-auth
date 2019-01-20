@@ -1,7 +1,7 @@
-import { AuthService } from "./../../services/auth.service";
 import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AuthService } from "./../../services/auth.service";
 
 @Component({
   selector: "app-registration",
@@ -26,8 +26,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.regForm.value);
-
     if (this.regForm.valid) {
       const regModel = this.regForm.value;
       this.authService.registration(regModel).subscribe((registrated: any) => {
